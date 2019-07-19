@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <ProductAdd></ProductAdd>
     <ul class="columns">
       <li v-for="product in allProducts" :key="product.id" class="column is-one-third">
         <Product :product="product"></Product>
@@ -11,11 +12,13 @@
 <script>
 import { mapGetters } from "vuex";
 import Product from "../components/Product.vue";
+import ProductAdd from '../components/ProductAdd.vue';
 
 export default {
   name: "Products",
   components: {
-    Product
+    Product,
+    ProductAdd
   },
   computed: {
     ...mapGetters({
