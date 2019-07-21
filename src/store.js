@@ -59,15 +59,9 @@ export default new Vuex.Store({
     getAllProducts: state => {
       return state.allProducts;
     },
-    getAllProductsCount: state => {
-      return state.allProducts.length;
-    },
     getLastProductId: state => {
-      if (state.allProducts.length != 0) {
-        return state.allProducts.slice(-1, 0).id;
-      }
-      
-      return 0;
+      console.log(123);
+      return (state.allProducts.length) ? state.allProducts.slice(-1)[0].id : 0;
     }
   }
 });
