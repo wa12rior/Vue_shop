@@ -56,7 +56,7 @@ export default {
   data() {
     return {
       newProduct: {
-        id: this.getNextProductId,
+        id: this.nextProductId,
         name: "",
         quantity: 0,
         price: 0,
@@ -67,11 +67,10 @@ export default {
   },
   methods: {
     ...mapActions(["addProductToStorage"]),
-    ...mapGetters(["getNextProductId"]),
     addProduct: function() {
       this.addProductToStorage(this.newProduct);
       this.newProduct = {
-        id: this.getNextProductId,
+        id: this.nextProductId,
         name: "",
         quantity: 0,
         price: 0,
@@ -79,6 +78,11 @@ export default {
         description: ""
       };
     }
+  },
+  computed: {
+    ...mapGetters({
+      nextProductId: "getNextProductId"
+    })
   }
 };
 </script>

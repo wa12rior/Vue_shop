@@ -3,6 +3,7 @@
     <ProductAdd></ProductAdd>
     <ul class="columns">
       <li v-for="product in allProducts" :key="product.id" class="column is-one-third">
+        {{product.id}}
         <Product :product="product"></Product>
       </li>
     </ul>
