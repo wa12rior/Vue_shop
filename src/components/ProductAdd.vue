@@ -54,10 +54,9 @@ import { mapActions, mapGetters } from "vuex";
 export default {
     name: "ProductAdd",
     data() {
-        console.log(this.getLastProductId);
         return {
             newProduct: {
-                id: 1,
+                id: this.getNextProductId,
                 name: '',
                 quantity: 0,
                 price: 0,
@@ -68,7 +67,7 @@ export default {
     },
     computed: {
         ...mapActions(['addProductToStorage']),
-        ...mapGetters(['getLastProductId'])
+        ...mapGetters(['getNextProductId'])
     }
 }
 </script>

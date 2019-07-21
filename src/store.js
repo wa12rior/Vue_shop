@@ -8,6 +8,7 @@ export default new Vuex.Store({
     menu: {
       visible: true
     },
+    nextProductId: 2,
     allProducts: [{
         id: 0,
         name: "Poduszka",
@@ -41,6 +42,7 @@ export default new Vuex.Store({
       state.menu.visible = !state.menu.visible;
     },
     ADD_PRODUCT_TO_STORAGE(state, product) {
+      state.nextProductId++;
       state.allProducts.push(product)
     }
   },
@@ -59,9 +61,8 @@ export default new Vuex.Store({
     getAllProducts: state => {
       return state.allProducts;
     },
-    getLastProductId: state => {
-      console.log(123);
-      return (state.allProducts.length) ? state.allProducts.slice(-1)[0].id : 0;
+    getNextProductId: state => {
+      return state.nextProductId;
     }
   }
 });
