@@ -12,7 +12,7 @@
 <script>
 import { mapGetters } from "vuex";
 import Product from "../components/Product.vue";
-import ProductAdd from '../components/ProductAdd.vue';
+import ProductAdd from "../components/ProductAdd.vue";
 
 export default {
   name: "Products",
