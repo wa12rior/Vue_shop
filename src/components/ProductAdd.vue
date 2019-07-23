@@ -3,25 +3,30 @@
     <h1 class="is-size-2">Add new product</h1>
     <div class="field">
       <div class="control">
+        <label class="label">Name</label>
         <input class="input is-medium" type="text" v-model="newProduct.name" placeholder="Name" />
       </div>
     </div>
     <div class="field">
       <div class="control">
+        <label class="label">Description</label>
         <input class="input" type="text" v-model="newProduct.description" placeholder="Description" />
       </div>
     </div>
     <div class="field">
       <div class="control">
+        <label class="label">Quantity</label>
         <input class="input" type="number" v-model="newProduct.quantity" placeholder="Quantity" />
       </div>
     </div>
     <div class="field">
       <div class="control">
+        <label class="label">Price</label>
         <input class="input" type="number" v-model="newProduct.price" placeholder="Price" />
       </div>
     </div>
     <div class="field">
+      <label class="label">Currency</label>
       <div class="field select">
         <select v-model="newProduct.currency">
           <option value="PLN">PLN</option>

@@ -6,6 +6,20 @@
       </figure>
     </div>
     <div class="card-content">
+      <div class="card-buttons">
+        <div class="quantity-buttons">
+          <button class="button-add">
+            <i class="fas fa-plus-square"></i>
+          </button>
+          <label class="product-quantity" for="product quantity">0</label>
+          <button class="button-remove">
+            <i class="fas fa-minus-square"></i>
+          </button>
+        </div>
+        <button class="button-cart">
+          <i class="fas fa-cart-plus"></i>
+        </button>
+      </div>
       <div class="media">
         <div class="media-content">
           <p class="product__name title is-4">{{ product.name }}</p>
@@ -37,5 +51,54 @@ export default {
 <style scoped>
 .content {
   text-align: left !important;
+}
+
+.quantity-buttons {
+  margin-bottom: 5px;
+}
+
+.card-content {
+  position: relative;
+}
+
+.card-buttons {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 10px;
+}
+
+.button-add,
+.button-remove,
+.button-cart {
+  border: none;
+  background: none;
+}
+
+.button-add i,
+.button-remove i,
+.button-cart i,
+.product-quantity {
+  font-size: 1.4rem;
+}
+
+.button-add i {
+  color: gold;
+}
+
+.button-remove i {
+  color: tomato;
+}
+
+.button-cart i {
+  color: rgb(22, 235, 189);
+  font-size: 1.8rem;
+}
+
+.button-add:hover,
+.button-remove:hover,
+.button-cart:hover {
+  cursor: pointer;
+  color: #8c67ef;
 }
 </style>

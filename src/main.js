@@ -6,6 +6,8 @@ import "./registerServiceWorker";
 import Buefy from "buefy";
 import "buefy/dist/buefy.css";
 
+import '@fortawesome/fontawesome-free/css/all.css';
+
 // Custom functions
 
 Vue.config.productionTip = false;
