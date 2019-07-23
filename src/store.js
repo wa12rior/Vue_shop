@@ -8,6 +8,7 @@ export default new Vuex.Store({
     menu: {
       visible: true
     },
+    nextProductId: 2,
     allProducts: [{
         id: 0,
         name: "Poduszka",
@@ -39,11 +40,18 @@ export default new Vuex.Store({
   mutations: {
     TOGGLE_MENU(state) {
       state.menu.visible = !state.menu.visible;
+    },
+    ADD_PRODUCT_TO_STORAGE(state, product) {
+      state.nextProductId++;
+      state.allProducts.push(product)
     }
   },
   actions: {
     toggleMenu(context) {
       context.commit('TOGGLE_MENU')
+    },
+    addProductToStorage(context, product) {
+      context.commit('ADD_PRODUCT_TO_STORAGE', product)
     }
   },
   getters: {
@@ -52,6 +60,9 @@ export default new Vuex.Store({
     },
     getAllProducts: state => {
       return state.allProducts;
+    },
+    getNextProductId: state => {
+      return state.nextProductId;
     }
   }
 });
