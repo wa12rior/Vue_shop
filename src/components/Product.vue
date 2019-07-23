@@ -8,11 +8,11 @@
     <div class="card-content">
       <div class="card-buttons">
         <div class="quantity-buttons">
-          <button class="button-add">
+          <button @click="incrementQuantity" class="button-add">
             <i class="fas fa-plus-square"></i>
           </button>
-          <label class="product-quantity" for="product quantity">0</label>
-          <button class="button-remove">
+          <label class="product-quantity" :for="productQuantity">{{ productQuantity }}</label>
+          <button @click="decrementQuantity" class="button-remove">
             <i class="fas fa-minus-square"></i>
           </button>
         </div>
@@ -34,7 +34,10 @@
         <a href="#">#css</a>
         <a href="#">#responsive</a>-->
         <br />
-        <p class="product__price">Price: {{ product.price }} {{ product.currency }}</p>
+        <p class="product__price">
+          <b>Price:</b>
+          {{ this.productQuantity == 0 ? product.price : product.price * this.productQuantity }} {{ product.currency }}
+        </p>
       </div>
     </div>
   </div>
@@ -42,8 +45,24 @@
 <script>
 export default {
   name: "Product",
+  data: function() {
+    return {
+      productQuantity: 0
+    };
+  },
   props: {
     product: {}
+  },
+  methods: {
+    incrementQuantity: function() {
+      this.productQuantity++;
+    },
+    decrementQuantity: function() {
+      this.productQuantity =
+        this.productQuantity >= 1
+          ? --this.productQuantity
+          : this.productQuantity;
+    }
   }
 };
 </script>
@@ -73,6 +92,7 @@ export default {
 .button-cart {
   border: none;
   background: none;
+  outline: none;
 }
 
 .button-add i,

@@ -25,13 +25,18 @@
         <input class="input" type="number" v-model="newProduct.price" placeholder="Price" />
       </div>
     </div>
+    <label class="label">Currency</label>
+    <div class="field select">
+      <select v-model="newProduct.currency">
+        <option value="PLN">PLN</option>
+      </select>
+    </div>
     <div class="field">
-      <label class="label">Currency</label>
-      <div class="field select">
-        <select v-model="newProduct.currency">
-          <option value="PLN">PLN</option>
-        </select>
-      </div>
+      <a
+        type="button"
+        class="button is-primary is-outlined is-pulled-right"
+        @click="addProduct"
+      >Add Product</a>
       <div class="file has-name">
         <label class="file-label">
           <input class="file-input" type="file" name="resume" />
@@ -43,11 +48,6 @@
           </span>
           <span class="file-name">Screen Shot 2017-07-29 at 15.54.25.png</span>
         </label>
-        <a
-          type="button"
-          class="button is-primary is-outlined is-pulled-right"
-          @click="addProduct"
-        >Send</a>
       </div>
     </div>
   </form>
