@@ -11,12 +11,13 @@
           <button @click="incrementQuantity" class="button-add">
             <i class="fas fa-plus-square"></i>
           </button>
-          <label class="product-quantity" :for="productQuantity">{{ productQuantity }}</label>
+          <input type="hidden" v-model="cartProduct.quantity" />
+          <label class="product-quantity" for="product quantity">{{ cartProduct.quantity }}</label>
           <button @click="decrementQuantity" class="button-remove">
             <i class="fas fa-minus-square"></i>
           </button>
         </div>
-        <button class="button-cart">
+        <button @click="addToCart(cartProduct)" class="button-cart">
           <i class="fas fa-cart-plus"></i>
         </button>
       </div>
@@ -36,18 +37,23 @@
         <br />
         <p class="product__price">
           <b>Price:</b>
-          {{ this.productQuantity == 0 ? product.price : product.price * this.productQuantity }} {{ product.currency }}
+          {{ cartProduct.quantity == 0 ? product.price : product.price * cartProduct.quantity }} {{ product.currency }}
         </p>
       </div>
     </div>
   </div>
 </template>         
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "Product",
   data: function() {
     return {
-      productQuantity: 0
+      cartProduct: {
+        quantity: 0,
+        productId: this.product.id
+      }
     };
   },
   props: {
@@ -55,13 +61,21 @@ export default {
   },
   methods: {
     incrementQuantity: function() {
-      this.productQuantity++;
+      this.cartProduct.quantity++;
     },
     decrementQuantity: function() {
-      this.productQuantity =
-        this.productQuantity >= 1
-          ? --this.productQuantity
-          : this.productQuantity;
+      this.cartProduct.quantity =
+        this.cartProduct.quantity >= 1
+          ? --this.cartProduct.quantity
+          : this.cartProduct.quantity;
+    },
+    ...mapActions(["addProductToCart"]),
+    addToCart: function() {
+      this.addProductToCart(this.cartProduct);
+      this.cartProduct = {
+        quantity: 0,
+        productId: this.product.id
+      };
     }
   }
 };

@@ -26,25 +26,39 @@ export default new Vuex.Store({
         description: "Very nice cup"
       }
     ],
-    cart: [{
+    cart: {
       orderId: 1,
       status: 1,
+      count: 0,
       products: [
 
       ]
-    }],
-    cartProductsCount: 0,
+    },
     taxonomies: {
 
     }
   },
   mutations: {
     TOGGLE_MENU(state) {
-      state.menu.visible = !state.menu.visible;
+      state.menu.visible = !state.menu.visible
     },
     ADD_PRODUCT_TO_STORAGE(state, product) {
-      state.nextProductId++;
+      state.nextProductId++
       state.allProducts.push(product)
+    },
+    ADD_PRODUCT_TO_CART(state, cartProduct) {
+      let itemExist = false;
+      state.cart.products.forEach((item, index) => {
+        if (item.productId == cartProduct.productId) {
+          item.quantity += cartProduct.quantity
+          itemExist = true;
+        }
+      })
+
+      if (!itemExist) {
+        state.cart.products.push(cartProduct)
+        state.cart.count++
+      }
     }
   },
   actions: {
@@ -53,6 +67,9 @@ export default new Vuex.Store({
     },
     addProductToStorage(context, product) {
       context.commit('ADD_PRODUCT_TO_STORAGE', product)
+    },
+    addProductToCart(context, cartProduct) {
+      context.commit('ADD_PRODUCT_TO_CART', cartProduct)
     }
   },
   getters: {
@@ -66,7 +83,7 @@ export default new Vuex.Store({
       return state.nextProductId;
     },
     getCartProductsCount: state => {
-      return state.cartProductsCount;
+      return state.cart.count;
     }
   }
 });
