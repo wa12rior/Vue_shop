@@ -71,11 +71,15 @@ export default {
     },
     ...mapActions(["addProductToCart"]),
     addToCart: function() {
-      this.addProductToCart(this.cartProduct);
-      this.cartProduct = {
-        quantity: 0,
-        productId: this.product.id
-      };
+      this.addProductToCart({
+        productId: this.cartProduct.productId,
+        quantity: this.cartProduct.quantity
+      });
+      this.cartProduct.quantity = 0;
+      // this.cartProduct = {
+      //   quantity: 0,
+      //   productId: this.product.id
+      // };
     }
   }
 };

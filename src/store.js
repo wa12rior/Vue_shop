@@ -46,17 +46,23 @@ export default new Vuex.Store({
       state.nextProductId++
       state.allProducts.push(product)
     },
-    ADD_PRODUCT_TO_CART(state, cartProduct) {
+    ADD_PRODUCT_TO_CART(state, {
+      productId,
+      quantity
+    }) {
       let itemExist = false;
       state.cart.products.forEach((item, index) => {
-        if (item.productId == cartProduct.productId) {
-          item.quantity += cartProduct.quantity
+        if (item.productId == productId) {
+          item.quantity += quantity
           itemExist = true;
         }
       })
 
       if (!itemExist) {
-        state.cart.products.push(cartProduct)
+        state.cart.products.push({
+          productId,
+          quantity
+        })
         state.cart.count++
       }
     }
@@ -68,8 +74,8 @@ export default new Vuex.Store({
     addProductToStorage(context, product) {
       context.commit('ADD_PRODUCT_TO_STORAGE', product)
     },
-    addProductToCart(context, cartProduct) {
-      context.commit('ADD_PRODUCT_TO_CART', cartProduct)
+    addProductToCart(context, payload) {
+      context.commit('ADD_PRODUCT_TO_CART', payload)
     }
   },
   getters: {
