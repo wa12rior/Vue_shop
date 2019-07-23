@@ -33,6 +33,7 @@ export default new Vuex.Store({
 
       ]
     }],
+    cartProductsCount: 0,
     taxonomies: {
 
     }
@@ -63,6 +64,9 @@ export default new Vuex.Store({
     },
     getNextProductId: state => {
       return state.nextProductId;
+    },
+    getCartProductsCount: state => {
+      return state.cartProductsCount;
     }
   }
 });

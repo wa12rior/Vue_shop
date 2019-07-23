@@ -23,7 +23,12 @@
         <router-link class="navbar-item" to="/about">About</router-link>
         <router-link class="navbar-item" to="/products">Products</router-link>
         <router-link class="navbar-item" to="/shop">
-          <i class="fas fa-shopping-cart">Cart</i>
+          <i class="fas fa-shopping-cart badge-relative">
+            Cart
+            <div
+              :class="{ badge: getCartProductsCount }"
+            >{{ getCartProductsCount == 0 ? '' : getCartProductsCount }}</div>
+          </i>
         </router-link>
       </div>
     </div>
@@ -39,7 +44,8 @@ export default {
   name: "Navbar",
   computed: {
     ...mapGetters({
-      isMenuOpen: "isMenuOpen"
+      isMenuOpen: "isMenuOpen",
+      getCartProductsCount: "getCartProductsCount"
     })
   },
   methods: {
@@ -47,3 +53,22 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.badge-relative {
+  position: relative;
+}
+.badge {
+  position: absolute;
+  background-color: #12be8b;
+  color: white;
+  padding: 3px;
+  font-size: 0.8rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  text-align: center;
+  border-radius: 50%;
+  left: -9px;
+  top: -9px;
+}
+</style>
