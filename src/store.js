@@ -30,10 +30,7 @@ export default new Vuex.Store({
       orderId: 1,
       status: 1,
       count: 0,
-      products: [{
-        quantity: 5,
-        productId: 0
-      }]
+      products: []
     },
     taxonomies: {
 
@@ -93,23 +90,16 @@ export default new Vuex.Store({
       return state.cart.count;
     },
     getCartProducts: state => {
-      // let products = state.cart.products.map((item) => {
-      //   state.allProducts.map((product) => {
-      //     if (product.id == item.productId) {
-      //       return product;
-      //     }
-      //   })
-      // })
       let products = []
 
       state.cart.products.forEach((product) => {
         products.push({
-          product: state.allProducts.find(item => item.id == product.productId),
+          data: state.allProducts.find(item => item.id == product.productId),
           quantity: product.quantity
         })
       })
 
-      return products;
+      return products.length > 0 ? products : false;
     }
   }
 });

@@ -1,7 +1,7 @@
 <template>
   <div class="cart">
     <div class="container">
-      <table class="table">
+      <table class="table" v-if="cartProducts">
         <thead>
           <tr>
             <th>
@@ -17,6 +17,9 @@
               <abbr title="Quantity">Quantity</abbr>
             </th>
             <th>
+              <abbr title></abbr>
+            </th>
+            <th>
               <abbr title="Remove">Remove</abbr>
             </th>
           </tr>
@@ -29,25 +32,33 @@
           </tr>
         </tfoot>
         <tbody>
-          <tr>
+          <tr v-for="product in cartProducts" :key="product.data.id">
             <td>
               <img src="https://bulma.io/images/placeholders/64x64.png" alt="Placeholder image" />
             </td>
+            <td>{{ product.data.name }}</td>
+            <td>{{ product.data.price * product.quantity }}</td>
+            <td>{{ product.quantity }}</td>
             <td>
-              <a
-                href="https://en.wikipedia.org/wiki/Leicester_City_F.C."
-                title="Leicester City F.C."
-              >Leicester City</a>
-              <strong>(C)</strong>
+              <button class="button-add">
+                <i class="fas fa-plus-square"></i>
+              </button>
+              <input type="hidden" />
+              <label class="product-quantity" for="product quantity">{{ product.quantity }}</label>
+              <button class="button-remove">
+                <i class="fas fa-minus-square"></i>
+              </button>
             </td>
-            <td>38</td>
-            <td>23</td>
-            <td>12</td>
+            <td>
+              <i class="fas fa-trash-alt"></i>
+            </td>
           </tr>
         </tbody>
       </table>
+      <h1 v-else class="title">There is no product in here...</h1>
+      <br />
+      <router-link class="button is-primary is-outlined" to="/products">Browse our shop</router-link>
     </div>
-    {{ cartProducts }}
   </div>
 </template>
 

@@ -76,16 +76,12 @@ export default {
         quantity: this.cartProduct.quantity
       });
       this.cartProduct.quantity = 0;
-      // this.cartProduct = {
-      //   quantity: 0,
-      //   productId: this.product.id
-      // };
     }
   }
 };
 </script>
 
-<style scoped>
+<style>
 .content {
   text-align: left !important;
 }
