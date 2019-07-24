@@ -24,7 +24,7 @@
         <tfoot>
           <tr>
             <th>
-              <abbr title="Total Price">Total Price:</abbr>
+              <abbr title="Total Price"></abbr>
             </th>
           </tr>
         </tfoot>
@@ -47,6 +47,7 @@
         </tbody>
       </table>
     </div>
+    {{ cartProducts }}
   </div>
 </template>
 
