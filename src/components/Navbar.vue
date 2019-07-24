@@ -22,7 +22,7 @@
         <router-link class="navbar-item" to="/">Home</router-link>
         <router-link class="navbar-item" to="/about">About</router-link>
         <router-link class="navbar-item" to="/products">Products</router-link>
-        <router-link class="navbar-item" to="/shop">
+        <router-link class="navbar-item" to="/cart">
           <i class="fas fa-shopping-cart badge-relative">
             Cart
             <div

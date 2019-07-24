@@ -90,6 +90,9 @@ export default new Vuex.Store({
     },
     getCartProductsCount: state => {
       return state.cart.count;
+    },
+    getCartProducts: state => {
+      return state.cart.products;
     }
   }
 });
