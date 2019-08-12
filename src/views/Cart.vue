@@ -50,7 +50,9 @@
               </button>
             </td>
             <td>
+            <button @click="removeFromCart(product.data.id)">
               <i class="fas fa-trash-alt"></i>
+              </button>
             </td>
           </tr>
         </tbody>
@@ -63,12 +65,17 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 export default {
   name: "Cart",
   components: {},
   computed: {
     ...mapGetters({ cartProducts: "getCartProducts" })
-  }
+  },
+  methods: {
+    ...mapActions({
+      removeFromCart: 'removeFromCart'
+    }),
+  },
 };
 </script>

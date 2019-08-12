@@ -44,6 +44,14 @@ export default new Vuex.Store({
       state.nextProductId++
       state.allProducts.push(product)
     },
+    REMOVE_PRODUCT_FROM_CART(state, {productId}) {
+      console.log(321);
+      state.cart.products.forEach((item, index) => {
+        if (item.productId == productId) {
+          state.cart.products.splice(index, 1)
+        }
+      })
+    },
     ADD_PRODUCT_TO_CART(state, {
       productId,
       quantity
@@ -74,6 +82,10 @@ export default new Vuex.Store({
     },
     addProductToCart(context, payload) {
       context.commit('ADD_PRODUCT_TO_CART', payload)
+    },
+    removeProductFromCart(context, payload) {
+      console.log(123);
+      context.commit('REMOVE_PRODUCT_FROM_CART', payload)
     }
   },
   getters: {
