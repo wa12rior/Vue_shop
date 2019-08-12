@@ -50,7 +50,7 @@
               </button>
             </td>
             <td>
-            <button @click="removeFromCart(product.data.id)">
+            <button @click="removeProductFromCart(product.data.id)">
               <i class="fas fa-trash-alt"></i>
               </button>
             </td>
@@ -68,14 +68,29 @@
 import { mapGetters, mapActions } from "vuex";
 export default {
   name: "Cart",
+  data() {
+    return {
+      checkout: {
+        products: [],
+        discounts: []
+      }
+    }
+  },
   components: {},
   computed: {
-    ...mapGetters({ cartProducts: "getCartProducts" })
+    ...mapGetters({ cartProducts: "getCartProducts" }),
   },
   methods: {
-    ...mapActions({
-      removeFromCart: 'removeFromCart'
-    }),
+    ...mapActions(['removeProductFromCart']),
+    incrementQuantity: function() {
+      this.cartProduct.quantity++;
+    },
+    decrementQuantity: function() {
+      this.cartProduct.quantity =
+        this.cartProduct.quantity >= 1
+          ? --this.cartProduct.quantity
+          : this.cartProduct.quantity;
+    },
   },
 };
 </script>
