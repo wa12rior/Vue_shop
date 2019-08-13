@@ -45,7 +45,7 @@ export default new Vuex.Store({
       state.nextProductId++
     },
     REMOVE_PRODUCT_FROM_CART(state, productId) {
-      state.cart.products.filter(product => product.productId !== productId)
+      state.cart.products = state.cart.products.filter(product => product.productId !== productId)
     },
     ADD_PRODUCT_TO_CART(state, {
       productId,
@@ -106,7 +106,7 @@ export default new Vuex.Store({
         })
       })
 
-      return products.length > 0 ? products : false;
+      return products.length > 0 ? products : [];
     }
   }
 });
