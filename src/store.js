@@ -41,8 +41,10 @@ export default new Vuex.Store({
       state.menu.visible = !state.menu.visible
     },
     ADD_PRODUCT_TO_STORAGE(state, product) {
-      state.nextProductId++
       state.allProducts.push(product)
+    },
+    INCREMENT_NEXT_PRODUCT_ID(state) {
+      state.nextProductId++
     },
     REMOVE_PRODUCT_FROM_CART(state, productId) {
       state.cart.products.forEach((item, index) => {
@@ -80,8 +82,9 @@ export default new Vuex.Store({
     addProductToStorage(context, product) {
       context.commit('ADD_PRODUCT_TO_STORAGE', product)
     },
-    addProductToCart(context, payload) {
+    addProductToCartAndIncrementID(context, payload) {
       context.commit('ADD_PRODUCT_TO_CART', payload)
+      context.commit('INCREMENT_NEXT_PRODUCT_ID')
     },
     removeProductFromCart(context, id) {
       context.commit('REMOVE_PRODUCT_FROM_CART', id)
