@@ -16,7 +16,8 @@
     "sass-loader": "^7.1.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "webfontloader": "^1.6.28"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.9.0",
@@ -31,6 +32,7 @@
     "chai": "^4.1.2",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "vue-cli-plugin-webfontloader": "^0.1.1",
     "vue-template-compiler": "^2.6.10"
   }
 }
