@@ -47,7 +47,7 @@ import { mapActions } from "vuex";
 
 export default {
   name: "Product",
-  data: function() {
+  data() {
     return {
       cartProduct: {
         quantity: 0,
