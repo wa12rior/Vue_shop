@@ -38,15 +38,14 @@
             </td>
             <td>{{ product.data.name }}</td>
             <td>{{ product.data.price * product.quantity }}</td>
-            <td>{{ product.quantity }}</td>
             <td>
               <button class="button-add">
-                <i class="fas fa-plus-square"></i>
+                <fa-icon icon="plus-square" />
               </button>
               <input type="hidden" />
               <label class="product-quantity" for="product quantity">{{ product.quantity }}</label>
               <button class="button-remove">
-                <i class="fas fa-minus-square"></i>
+                <fa-icon icon="minus-square" />
               </button>
             </td>
             <td>
