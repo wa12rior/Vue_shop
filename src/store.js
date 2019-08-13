@@ -28,8 +28,6 @@ export default new Vuex.Store({
     ],
     cart: {
       orderId: 1,
-      status: 1,
-      count: 0,
       products: []
     },
     taxonomies: {
@@ -47,31 +45,26 @@ export default new Vuex.Store({
       state.nextProductId++
     },
     REMOVE_PRODUCT_FROM_CART(state, productId) {
-      state.cart.products.forEach((item, index) => {
-        if (item.productId == productId) {
-          state.cart.products.splice(index, 1)
-          state.cart.count--;
-        }
-      })
+      state.cart.products.filter(product => product.productId !== productId)
     },
     ADD_PRODUCT_TO_CART(state, {
       productId,
       quantity
     }) {
       let itemExist = false;
-      state.cart.products.forEach((item, index) => {
-        if (item.productId == productId) {
+      for (let i = state.cart.products.length - 1; i >= 0; i--) {
+        if (state.cart.products[i].productId == productId) {
           item.quantity += quantity
           itemExist = true;
+          break;
         }
-      })
+      }
 
       if (!itemExist) {
         state.cart.products.push({
           productId,
           quantity
         })
-        state.cart.count++
       }
     }
   },
@@ -101,7 +94,7 @@ export default new Vuex.Store({
       return state.nextProductId;
     },
     getCartProductsCount: state => {
-      return state.cart.count;
+      return state.cart.products.length;
     },
     getCartProducts: state => {
       let products = []
