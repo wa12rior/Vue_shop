@@ -66,14 +66,14 @@ export default {
     }
   },
   methods: {
-    incrementQuantity: function() {
+    incrementQuantity() {
       this.cartProduct.quantity++;
     },
-    decrementQuantity: function() {
+    decrementQuantity() {
       this.cartProduct.quantity = Math.max(0, --this.cartProduct.quantity);
     },
     ...mapActions(["addProductToCart"]),
-    addToCart: function() {
+    addToCart() {
       this.addProductToCart({
         productId: this.cartProduct.productId,
         quantity: this.cartProduct.quantity
