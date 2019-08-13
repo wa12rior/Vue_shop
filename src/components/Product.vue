@@ -72,9 +72,9 @@ export default {
     decrementQuantity() {
       this.cartProduct.quantity = Math.max(0, --this.cartProduct.quantity);
     },
-    ...mapActions(["addProductToCart"]),
+    ...mapActions(["addProductToCartAndIncrementId"]),
     addToCart() {
-      this.addProductToCart({
+      this.addProductToCartAndIncrementId({
         productId: this.cartProduct.productId,
         quantity: this.cartProduct.quantity
       });

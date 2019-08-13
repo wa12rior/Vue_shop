@@ -82,7 +82,7 @@ export default new Vuex.Store({
     addProductToStorage(context, product) {
       context.commit('ADD_PRODUCT_TO_STORAGE', product)
     },
-    addProductToCartAndIncrementID(context, payload) {
+    addProductToCartAndIncrementId(context, payload) {
       context.commit('ADD_PRODUCT_TO_CART', payload)
       context.commit('INCREMENT_NEXT_PRODUCT_ID')
     },
