@@ -42,7 +42,7 @@
           <input class="file-input" type="file" name="resume" />
           <span class="file-cta">
             <span class="file-icon">
-              <i class="fas fa-upload"></i>
+              <fa-icon icon="upload" />
             </span>
             <span class="file-label">Choose a file…</span>
           </span>

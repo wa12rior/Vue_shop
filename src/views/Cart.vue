@@ -50,8 +50,8 @@
               </button>
             </td>
             <td>
-            <button @click="removeProductFromCart(product.data.id)">
-              <i class="fas fa-trash-alt"></i>
+              <button @click="removeProductFromCart(product.data.id)">
+                <fa-icon icon="trash-alt" />
               </button>
             </td>
           </tr>
@@ -74,14 +74,14 @@ export default {
         products: [],
         discounts: []
       }
-    }
+    };
   },
   components: {},
   computed: {
-    ...mapGetters({ cartProducts: "getCartProducts" }),
+    ...mapGetters({ cartProducts: "getCartProducts" })
   },
   methods: {
-    ...mapActions(['removeProductFromCart']),
+    ...mapActions(["removeProductFromCart"]),
     incrementQuantity: function() {
       this.cartProduct.quantity++;
     },
@@ -90,7 +90,7 @@ export default {
         this.cartProduct.quantity >= 1
           ? --this.cartProduct.quantity
           : this.cartProduct.quantity;
-    },
-  },
+    }
+  }
 };
 </script>

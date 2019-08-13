@@ -9,16 +9,16 @@
       <div class="card-buttons">
         <div class="quantity-buttons">
           <button @click="incrementQuantity" class="button-add">
-            <i class="fas fa-plus-square"></i>
+            <fa-icon icon="plus-square"/>
           </button>
           <input type="hidden" v-model="cartProduct.quantity" />
           <label class="product-quantity" for="product quantity">{{ cartProduct.quantity }}</label>
           <button @click="decrementQuantity" class="button-remove">
-            <i class="fas fa-minus-square"></i>
+            <fa-icon icon="minus-square"/>
           </button>
         </div>
         <button @click="addToCart(cartProduct)" class="button-cart">
-          <i class="fas fa-cart-plus"></i>
+          <fa-icon icon="cart-plus"/>
         </button>
       </div>
       <div class="media">

@@ -6,7 +6,6 @@
 </template>
 
 <style>
-@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
 #app {
   font-family: "Raleway";
   -webkit-font-smoothing: antialiased;

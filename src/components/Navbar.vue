@@ -23,12 +23,12 @@
         <router-link class="navbar-item" to="/about">About</router-link>
         <router-link class="navbar-item" to="/products">Products</router-link>
         <router-link class="navbar-item" to="/cart">
-          <i class="fas fa-shopping-cart badge-relative">
+          <fa-icon class="badge-relative" icon="shopping-cart">
             Cart
             <div
               :class="{ badge: getCartProductsCount }"
             >{{ getCartProductsCount == 0 ? '' : getCartProductsCount }}</div>
-          </i>
+          </fa-icon>
         </router-link>
       </div>
     </div>
