@@ -19,10 +19,10 @@
     </div>
     <div class="navbar-menu" v-bind:class="{ 'is-active': isMenuOpen }" id="navMenu">
       <div class="navbar-end">
-        <router-link class="navbar-item" to="/">Home</router-link>
-        <router-link class="navbar-item" to="/about">About</router-link>
-        <router-link class="navbar-item" to="/products">Products</router-link>
-        <router-link class="navbar-item" to="/cart">
+        <router-link class="navbar-item" :to="{ name: 'home' }">Home</router-link>
+        <router-link class="navbar-item" :to="{ name: 'about' }">About</router-link>
+        <router-link class="navbar-item" :to="{ name: 'products' }">Products</router-link>
+        <router-link class="navbar-item" :to="{ name: 'cart' }">
           <fa-icon class="badge-relative" icon="shopping-cart">
             Cart
             <div
