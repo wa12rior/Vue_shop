@@ -70,10 +70,7 @@ export default {
       this.cartProduct.quantity++;
     },
     decrementQuantity: function() {
-      this.cartProduct.quantity =
-        this.cartProduct.quantity >= 1
-          ? --this.cartProduct.quantity
-          : this.cartProduct.quantity;
+      this.cartProduct.quantity = Math.max(0, --this.cartProduct.quantity);
     },
     ...mapActions(["addProductToCart"]),
     addToCart: function() {
