@@ -22,13 +22,9 @@
         <router-link class="navbar-item" :to="{ name: 'home' }">Home</router-link>
         <router-link class="navbar-item" :to="{ name: 'about' }">About</router-link>
         <router-link class="navbar-item" :to="{ name: 'products' }">Products</router-link>
-        <router-link class="navbar-item" :to="{ name: 'cart' }">
-          <fa-icon class="badge-relative" icon="shopping-cart">
-            Cart
-            <div
-              :class="{ badge: getCartProductsCount }"
-            >{{ getCartProductsCount == 0 ? '' : getCartProductsCount }}</div>
-          </fa-icon>
+        <router-link class="navbar-item badge-relative" :to="{ name: 'cart' }">
+          <fa-icon icon="shopping-cart" />
+          <div v-if="getCartProductsCount" class="badge">{{ getCartProductsCount }}</div>
         </router-link>
       </div>
     </div>
@@ -43,10 +39,7 @@ import { mapActions, mapGetters } from "vuex";
 export default {
   name: "Navbar",
   computed: {
-    ...mapGetters({
-      isMenuOpen: "isMenuOpen",
-      getCartProductsCount: "getCartProductsCount"
-    })
+    ...mapGetters(["isMenuOpen", "getCartProductsCount"])
   },
   methods: {
     ...mapActions(["toggleMenu"])
@@ -62,13 +55,12 @@ export default {
   position: absolute;
   background-color: #12be8b;
   color: white;
-  padding: 3px;
   font-size: 0.8rem;
   width: 1.2rem;
   height: 1.2rem;
   text-align: center;
   border-radius: 50%;
-  left: -9px;
-  top: -9px;
+  left: 5px;
+  top: 5px;
 }
 </style>

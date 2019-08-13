@@ -9,16 +9,15 @@
       <div class="card-buttons">
         <div class="quantity-buttons">
           <button @click="incrementQuantity" class="button-add">
-            <fa-icon icon="plus-square"/>
+            <fa-icon icon="plus-square" />
           </button>
-          <input type="hidden" v-model="cartProduct.quantity" />
           <label class="product-quantity" for="product quantity">{{ cartProduct.quantity }}</label>
           <button @click="decrementQuantity" class="button-remove">
-            <fa-icon icon="minus-square"/>
+            <fa-icon icon="minus-square" />
           </button>
         </div>
         <button @click="addToCart(cartProduct)" class="button-cart">
-          <fa-icon icon="cart-plus"/>
+          <fa-icon icon="cart-plus" />
         </button>
       </div>
       <div class="media">
@@ -37,7 +36,7 @@
         <br />
         <p class="product__price">
           <b>Price:</b>
-          {{ cartProduct.quantity == 0 ? product.price : product.price * cartProduct.quantity }} {{ product.currency }}
+          {{ getTotalPrice }} {{ product.currency }}
         </p>
       </div>
     </div>
@@ -58,6 +57,13 @@ export default {
   },
   props: {
     product: {}
+  },
+  computed: {
+    getTotalPrice() {
+      return this.cartProduct.quantity == 0
+        ? this.product.price
+        : this.product.price * this.cartProduct.quantity;
+    }
   },
   methods: {
     incrementQuantity: function() {
