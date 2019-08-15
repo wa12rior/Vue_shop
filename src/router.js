@@ -1,6 +1,9 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
+import About from "./views/About.vue";
+import Products from "./views/Products.vue";
+import Cart from "./views/Cart.vue";
 
 Vue.use(Router);
 
@@ -15,20 +18,17 @@ export default new Router({
     {
       path: "/about",
       name: "about",
-      component: () =>
-        import( /* webpackChunkName: "about" */ "./views/About.vue")
+      component: About
     },
     {
       path: "/products",
       name: "products",
-      component: () =>
-        import( /* webpackChunkName: "about" */ "./views/Products.vue")
+      component: Products
     },
     {
-      path: "/shop",
-      name: "shop",
-      component: () =>
-        import( /* webpackChunkName: "shop" */ "./views/Shop.vue")
+      path: "/cart",
+      name: "cart",
+      component: Cart
     }
   ]
 });

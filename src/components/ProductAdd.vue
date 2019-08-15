@@ -3,46 +3,51 @@
     <h1 class="is-size-2">Add new product</h1>
     <div class="field">
       <div class="control">
+        <label class="label">Name</label>
         <input class="input is-medium" type="text" v-model="newProduct.name" placeholder="Name" />
       </div>
     </div>
     <div class="field">
       <div class="control">
+        <label class="label">Description</label>
         <input class="input" type="text" v-model="newProduct.description" placeholder="Description" />
       </div>
     </div>
     <div class="field">
       <div class="control">
+        <label class="label">Quantity</label>
         <input class="input" type="number" v-model="newProduct.quantity" placeholder="Quantity" />
       </div>
     </div>
     <div class="field">
       <div class="control">
+        <label class="label">Price</label>
         <input class="input" type="number" v-model="newProduct.price" placeholder="Price" />
       </div>
     </div>
+    <label class="label">Currency</label>
+    <div class="field select">
+      <select v-model="newProduct.currency">
+        <option value="PLN">PLN</option>
+      </select>
+    </div>
     <div class="field">
-      <div class="field select">
-        <select v-model="newProduct.currency">
-          <option value="PLN">PLN</option>
-        </select>
-      </div>
+      <a
+        type="button"
+        class="button is-primary is-outlined is-pulled-right"
+        @click="addProduct"
+      >Add Product</a>
       <div class="file has-name">
         <label class="file-label">
           <input class="file-input" type="file" name="resume" />
           <span class="file-cta">
             <span class="file-icon">
-              <i class="fas fa-upload"></i>
+              <fa-icon icon="upload" />
             </span>
             <span class="file-label">Choose a file…</span>
           </span>
           <span class="file-name">Screen Shot 2017-07-29 at 15.54.25.png</span>
         </label>
-        <a
-          type="button"
-          class="button is-primary is-outlined is-pulled-right"
-          @click="addProduct"
-        >Send</a>
       </div>
     </div>
   </form>
